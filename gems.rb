@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'foreman'
-gem 'dotenv'
+ruby '~> 2.5.1'
+
 gem 'geminabox'
-gem 'unicorn'
+gem 'puma'

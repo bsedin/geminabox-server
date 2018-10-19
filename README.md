@@ -21,39 +21,10 @@ Start geminabox server:
 
 ```sh
 $ GEMINABOX_DATA=/path/where/gems/will/be/saved \
-  GEMINABOX_PORT=9292 \
-  GEMINABOX_HOST=0.0.0.0 \
-  foreman start
+  GEMINABOX_PORT=9292
 ```
 
 Geminabox will start binded to `0.0.0.0:9292`
-
-## Using with nginx
-
-If you want to use `nginx` as frontend proxy, maybe you'll want to bind geminabox to socket. To do that, run:
-
-```bash
-$ GEMINABOX_DATA=/path/where/gems/will/be/saved \
-  GEMINABOX_SOCKET=/var/run/geminabox.sock \
-  foreman start
-```
-
-Now configure nginx to use geminabox as upstream:
-
-```nginx
-upstream geminabox {
-  server unix:/var/run/geminabox.sock;
-}
-
-server {
-  listen 9292;
-  server_name gems.example.com;
-
-  location / {
-    proxy_pass http://geminabox;
-  }
-}
-```
 
 ## License
 
